@@ -1,5 +1,6 @@
 package com.game;
 
+// Card actions
 public class Card {
     private String rank;
     private String suit;
@@ -9,6 +10,7 @@ public class Card {
         this.suit = suit;
     }
 
+    // To get the value of the card after picked
     public int getValue() {
         if (rank.equals("Ace")) {
             return 1;

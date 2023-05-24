@@ -1,11 +1,18 @@
 package com.game;
 
+
 import java.util.List;
 import java.util.Scanner;
 
+/*
+Player and dealer operations and to find the winners among all.
+ */
 public class PlayerAndDealerTurn {
 
 
+    /*
+    Player turn to hit or stand, if hits takes the card, if stand it will skip to the next player
+     */
     public static void playPlayerTurn(Player player, Deck deck, Scanner scanner) {
         while (true) {
             System.out.println(player.getName() + " " + player.getHand() + " " + "Hit or Stand ? >");
@@ -29,7 +36,9 @@ public class PlayerAndDealerTurn {
         }
     }
 
-    //dealer conditions
+    /*
+    Dealer turn to hit or stand, The dealer will perform automatically hit/stand based on random no generation
+     */
     public static void playDealerTurn(Dealer dealer) {
 
         // plan to hit / stand each time randomly
@@ -52,28 +61,28 @@ public class PlayerAndDealerTurn {
 
     // winnner among the players and dealers
     public static String announceWinners(List<Player> players, List<Dealer> dealers) {
-        StringBuffer winnerBuffer = new StringBuffer();
+        StringBuilder winnerBuilder = new StringBuilder();
         int playerCount = 1;
         for (Dealer dealer : dealers) {
 
             int playerTotal = players.get(playerCount - 1).getHandTotal();
             int dealerTotal = dealer.getHandTotal();
-            winnerBuffer.append("scoring player " + playerCount + " has " + playerTotal + ", ");
-            winnerBuffer.append("dealer has " + dealerTotal);
+            winnerBuilder.append("scoring player " + playerCount + " has " + playerTotal + ", ");
+            winnerBuilder.append("dealer has " + dealerTotal);
 
             if (playerTotal > dealerTotal) {
-                winnerBuffer.append(" Player " + playerCount + " wins");
+                winnerBuilder.append(" Player " + playerCount + " wins");
             } else if (dealerTotal > playerTotal) {
-                winnerBuffer.append(" Dealer wins");
+                winnerBuilder.append(" Dealer wins");
             } else {
-                winnerBuffer.append(" Draw Match");
+                winnerBuilder.append(" Draw Match");
             }
-            winnerBuffer.append("\n");
+            winnerBuilder.append("\n");
 
             playerCount++;
 
         }
 
-        return winnerBuffer.toString();
+        return winnerBuilder.toString();
     }
 }

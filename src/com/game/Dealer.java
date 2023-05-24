@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+// Dealer perform actions
 public class Dealer {
 
     private String name;
@@ -14,6 +15,7 @@ public class Dealer {
         hand = new ArrayList<>();
     }
 
+    // get the name of the card
     public String getName() {
         return name;
     }
@@ -22,6 +24,7 @@ public class Dealer {
         return hand;
     }
 
+    // Take the card inHand
     public void addCardToHand(Card card) {
         hand.add(card);
     }
@@ -46,7 +49,7 @@ public class Dealer {
         return total;
     }
 
-    // create random number to pass the value betn 1 to 2
+    // create random number to pass the value betn 1 to 2 for either to hit/stand purpose
     public int generateRandomNumber() {
         Random random = new Random();
         int number = random.nextInt(2) + 1;

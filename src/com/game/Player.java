@@ -13,6 +13,7 @@ public class Player {
         hand = new ArrayList<>();
     }
 
+    // get the name of the card
     public String getName() {
         return name;
     }
@@ -21,6 +22,7 @@ public class Player {
         return hand;
     }
 
+    // get the card inHand
     public void addCardToHand(Card card) {
         hand.add(card);
     }

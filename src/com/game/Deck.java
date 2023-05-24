@@ -8,6 +8,7 @@ public class Deck {
     private List<Card> cards;
     private int cardIndex;
 
+    // Deck which contains the pack of 52 cards
     public Deck() {
         String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
         String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
@@ -22,6 +23,7 @@ public class Deck {
         cardIndex = 0;
     }
 
+    // shuffle the card when the game started based on the Math formula
     public void shuffle() {
         for (int i = cards.size() - 1; i > 0; i--) {
             int j = (int) (Math.random() * (i + 1));
@@ -33,6 +35,7 @@ public class Deck {
         cardIndex = 0;
     }
 
+    // To get the card with updated deck of card index
     public Card dealCard() {
         if (cardIndex >= cards.size()) {
             throw new IllegalStateException("Deck is empty now!");
